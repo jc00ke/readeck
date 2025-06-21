@@ -1,0 +1,9 @@
+[tools]
+"aqua:1password/cli" = "2.31.1"
+"aqua:superfly/flyctl" = "latest"
+
+[tasks."fly:set-secrets"]
+run = """
+fly secrets set \
+  READECK_SECRET_KEY=$(op read "op://Private/Fly.io Readeck/Readeck/secret key")
+"""

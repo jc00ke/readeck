@@ -1,0 +1,7 @@
+dbs:
+  - path: /readeck/readeck.sqlite3
+    replicas:
+      - type: s3
+        path: readeck.sqlite3
+        bucket: readeck
+        endpoint: fly.storage.tigris.dev

@@ -1,0 +1,33 @@
+# fly.toml app configuration file generated for readeck on 2025-06-20T14:08:19-07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'readeck'
+primary_region = 'sea'
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+
+[env]
+  READECK_LOG_LEVEL = "info"
+  READECK_SERVER_HOST = "0.0.0.0"
+  READECK_SERVER_PORT = "8080"
+  READECK_DATA_DIRECTORY = "/readeck/data"
+  READECK_DATABASE_SOURCE = "sqlite3:/readeck/readeck.sqlite3"
+
+[mounts]
+  source = "readeck_data"
+  destination = "/readeck"
+  initial_size = "10gb"
+  snapshot_retention = 14
