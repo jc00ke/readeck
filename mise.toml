@@ -1,6 +1,6 @@
 [tools]
 "aqua:1password/cli" = "2.31.1"
-"aqua:superfly/flyctl" = "latest"
+"flyctl" = "latest"
 
 [tasks."fly:set-secrets"]
 run = """
